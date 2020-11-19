@@ -110,7 +110,6 @@ trace_listener(State0) ->
     {dump, Pid} ->
       Pid ! {stacks, State0};
     {dump_bytes, Pid} ->
-      ?LOG("Dumping bytes...~n"),
       IOList = [ dump_to_iolist(TPid, Dump#dump.acc)
                  || {TPid, Dump} <- maps:to_list(State0)
                ],
